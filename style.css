@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/*--------------------------------------------------------*/
+
+:root{
+    --main-bgColor:rgba(0, 0, 0, 0.384);
+    --sideBar-bgColor:rgb(14, 13, 13);
+}
+
+/*--------------------------------------------------------*/
+body
+{
+    background: linear-gradient(0.25turn, #8b6986de, #e9ecf1, #4981a7); 
+    font-family: 'Montserrat','sans-serif','arial';
+    margin: 0px;
+    padding: 0px;
+}
+/*--------------------------------------------------------*/
+.conteneur{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "side"
+    "section"
+    "ad"
+    "footer";
+    
+}
+/*--------------------------------------------------------*/
+
+.cont-header
+{
+    
+    background-color: var(--main-bgColor);
+    grid-area:header;
+    text-align: center;
+    font-family: 'Pacifico','cursive','times new roman';
+    font-size: 32px;
+    flex-wrap: nowrap;
+    font-weight:500 ;
+    height: 100px;
+    padding-left: 80px;
+   }
+/*--------------------------------------------------------*/
+.cont-nav
+{
+    grid-area: nav ;
+    font-family:'playfair Display','Montserrat','sans-serif';
+    background-color: var(--main-bgColor);
+    display: none;
+    
+}
+
+nav.cont-nav li{
+    
+    list-style: none;
+    margin: 2px 0px;
+    
+}
+nav.cont-nav a{
+    padding:1px;
+    transition: 1300ms;
+    text-decoration:none;
+    color:rgb(35, 35, 39);
+    border:none;
+}
+nav.cont-nav a:hover{
+    color:slategrey;
+    transition: 1300ms;
+    background-color: rgb(35, 35, 39);
+    border:none;
+}
+/*--------------------------------------------------------*/
+
+.cont-side
+{
+    
+    grid-area: side;
+    margin: 1px;
+    background-color: var(--main-bgColor);
+}
+/*--------------------------------------------------------*/
+.cont-section
+{
+    grid-area: section;
+    margin: 1px;
+    background-color: var(--main-bgColor);
+}
+/*--------------------------------------------------------*/
+
+.cont-adv
+{
+    grid-area: ad;
+    margin: 1px;
+    background-color: var(--main-bgColor);
+}
+/*--------------------------------------------------------*/
+
+.cont-foot
+{
+    grid-area:footer;
+    margin: 1px;
+    background-color: var(--main-bgColor);
+}
+/*--------------------------------------------------------*/
+
+
+/*--------------------------------------------------------*/
+
+#side-bar{
+    position:fixed;
+    width: 230px;
+    height: 100%;
+    background: var(--sideBar-bgColor);
+    left: -300px;
+    transition: 0.8s ease;
+    z-index:4 ;
+  }
+  .toggle-button{
+    position:fixed;
+    top: 30px;
+    left: 20px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    transition:0.8s ease;
+  }
+  
+  .toggle-button span{
+  width: 60px;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--sideBar-bgColor);
+  display:block;
+  margin-top: 4px;
+  transition:1s ease;
+  }
+  #side-bar ul li{
+    list-style:  none;
+   
+  }
+  #side-bar a  {
+    text-decoration: none;
+    color:#f0e9ef;
+    font-size: 1rem;
+    cursor: pointer;
+    padding-left: 5px;
+  }
+  #side-bar a:hover{
+    background: #ffffff;
+    color: var(--sideBar-bgColor);
+  }
+  
+  #side-bar.active{
+    left:0;
+   
+  }
+  
+  #side-bar.active .toggle-button {
+    top:2.8rem;
+    left:235px;
+    transition:0.8s ease;
+  }
+  #side-bar.active span{
+    position:absolute;
+  }
+  #side-bar.active span:nth-child(1){
+    transform:rotate(45deg);
+  }
+  #side-bar.active span:nth-child(2){
+  opacity:0;
+  }
+  #side-bar.active span:nth-child(3){
+    transform:rotate(-45deg);
+  }
+  #side-bar.active ~ .content{
+    opacity: 0.3;
+  }
+  /*-------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------*/
+  @media (min-width:707px){
+    .conteneur{
+          
+          display: grid;
+          grid-template-columns: 200px auto ;
+        grid-template-areas: 
+        "header nav"
+        "side section"
+        "ad footer";
+    }
+
+    .cont-header{
+        padding-left: 0px;
+        font-size:20px;
+    }
+
+    .cont-nav{
+        display:initial;
+        padding-right: 1rem;
+        padding-top: 3rem;
+    }
+
+    .cont-nav ul {
+        padding-left: 0;
+        white-space: nowrap;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        column-gap: 5px;
+        font-size: 14px;    
+    }
+    
+    nav.cont-nav a{
+        transition: 1300ms;
+        text-decoration:none;
+        border-top: rgb(35, 35, 39) 1px solid ;
+        border-bottom: rgb(35, 35, 39) 1px solid ;
+        color:rgb(35, 35, 39);
+    }
+
+    nav.cont-nav a:hover{
+        color:slategrey;
+        transition: 1300ms;
+        border-top:slategrey 1px solid ;
+        border-bottom: slategrey 1px solid ;
+        background-color: rgb(35, 35, 39);
+    }
+
+    .toggle-button{
+        left:-500px;
+    }
+    
+    #side-bar{
+        left:-500px;
+    }
+    
+}
+
+/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------*/
+@media (min-width:1000px) {
+    .conteneur{
+        display: grid;
+        grid-template-columns: 200px 4fr 1fr;
+        grid-template-areas: 
+        "header header header"
+        "nav section side"
+        "nav section ad"
+        "footer footer footer";
+    }
+    .cont-header{
+        font-size: 54px;
+        padding-left: 0px;
+    }
+    .cont-nav{
+        padding-right: 1px;
+        padding-top: 1px;
+    }
+    nav.cont-nav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    nav.cont-nav a{
+        border:none;
+    }
+    nav.cont-nav a:hover{
+        border:none;
+    }
+    .toggle-button{
+        left:-500px;
+    }
+    #side-bar{
+        left:-500px;
+    }
+}
